@@ -1,35 +1,28 @@
 version: "3.8"
 
 services:
-  postgresdb:
+  psql-db:
     image: postgres
-    restart: unless-stopped
+    container_name: psql-db
+    restart: always
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=test
-      - POSTGRES_DB=postgres
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=travel
     ports:
-      - 5432:5432
-  app:
-    depends_on:
-      - postgresdb
+      - '5432:5432'
+
+  recipe:
+    container_name: travel_app
     build:
       context: .
       dockerfile: Dockerfile
-    restart: on-failure
     ports:
-      - 6868:8080
+      - '8080:8080'
     environment:
-      SPRING_APPLICATION_JSON: '{
-        "spring.datasource.url"  : "jdbc:postgresql://postgresdb:5432/postgres",
-        "spring.datasource.username" : "postgres",
-        "spring.datasource.password" : "test",
-        "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.PostgreSQLDialect",
-        "spring.jpa.hibernate.ddl-auto" : "update"
-      }'
-    stdin_open: true
-    tty: true
-
-volumes:
-  db:
-
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://psql-db:5432/travel
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=1234
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    depends_on:
+      - psql-db
