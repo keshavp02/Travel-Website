@@ -1,6 +1,6 @@
 package com.example.TravelWebsite.controller;
 
-import com.example.TravelWebsite.model.Airport;
+import com.example.TravelWebsite.entity.Airport;
 import com.example.TravelWebsite.repository.AirportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

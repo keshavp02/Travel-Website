@@ -1,4 +1,4 @@
-package com.example.TravelWebsite.model;
+package com.example.TravelWebsite.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
