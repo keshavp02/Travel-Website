@@ -6,14 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4165b41b-acaa-4a4d-b4e2-4fe528b4d48b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/TravelWebsite/controller/AirportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/TravelWebsite/controller/AirportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/TravelWebsite/model/Airport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/TravelWebsite/entity/Airport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/TravelWebsite/repository/AirportRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/TravelWebsite/repository/AirportRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/TravelWebsite/controller/AirportController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/TravelWebsite/controller/AirportController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/TravelWebsite/model/Airport.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/TravelWebsite/repository/AirportRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/TravelWebsite/repository/AirportRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/TravelWebsite/entity/VactionPakage.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +92,7 @@
       <updated>1704742038396</updated>
       <workItem from="1704742042138" duration="12743000" />
       <workItem from="1704758724613" duration="21889000" />
-      <workItem from="1705163130957" duration="649000" />
+      <workItem from="1705163130957" duration="1962000" />
     </task>
     <servers />
   </component>
