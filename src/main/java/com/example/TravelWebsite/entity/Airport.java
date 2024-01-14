@@ -3,9 +3,7 @@ package com.example.TravelWebsite.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import org.springframework.data.relational.core.mapping.Table;
 
-@Table
 @Entity
 public class Airport {
     public Airport()

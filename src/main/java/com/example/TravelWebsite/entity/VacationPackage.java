@@ -4,7 +4,7 @@ import java.util.Date;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import org.springframework.data.relational.core.mapping.Table;
+import jakarta.persistence.Table;
 
 @Table(name = "VacationPackage")
 @Entity

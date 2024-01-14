@@ -1,11 +1,10 @@
 spring:
   jpa:
-    database: POSTGRESQL
     show-sql: true
     hibernate:
       ddl-auto: create-drop
   datasource:
-    url: jdbc:postgresql://localhost:5432/traveldb
-    username: postgres
-    password: test
+    url: jdbc:postgresql://localhost:5432/travel
+    username: admin
+    password: 1234
     driverClassName: org.postgresql.Driver
