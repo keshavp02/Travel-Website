@@ -1,4 +1,4 @@
-# Read Me First
+# my first travel site
 The following was discovered as part of building this project:
 
 * The original package name 'com.example.Travel-Website' is invalid and this project uses 'com.example.TravelWebsite' instead.
