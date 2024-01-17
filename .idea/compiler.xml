@@ -10,9 +10,6 @@
         <module name="Travel-Website" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Travel-Website" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
