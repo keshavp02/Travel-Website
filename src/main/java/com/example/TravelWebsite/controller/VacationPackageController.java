@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/vacation-packages")
+@RequestMapping("/apiv1/vp")
 public class VacationPackageController {
 
     @Autowired
-    private VacationPackageRepository vacationPackageRepository;
+    VacationPackageRepository vacationPackageRepository;
 
     @GetMapping
     public List<VacationPackage> getAllVacationPackages() {
@@ -27,7 +27,7 @@ public class VacationPackageController {
         return optionalPackage.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping("/add")
+    @PostMapping("/submit")
     public ResponseEntity<?> addVacationPackage(@RequestBody VacationPackage vacationPackage) {
         vacationPackageRepository.save(vacationPackage);
         return ResponseEntity.ok("Done adding a vacation package");

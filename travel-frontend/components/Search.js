@@ -19,7 +19,7 @@ const Home = () => {
         destination: '',
         fromDate: '',
         toDate: '',
-        adults: 1,
+        adults: 0,
         children: 0,
     });
 

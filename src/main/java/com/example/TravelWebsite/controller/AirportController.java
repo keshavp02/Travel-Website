@@ -4,11 +4,7 @@ import com.example.TravelWebsite.entity.Airport;
 import com.example.TravelWebsite.repository.AirportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -17,8 +13,8 @@ public class AirportController {
 
     @Autowired
     AirportRepository airportRepository;
-    @GetMapping(value ="/Add/{airport}")
-    public ResponseEntity<?> AddAirport(@RequestHeader Airport airport)
+    @PostMapping("/Add")
+    public ResponseEntity<?> AddAirport(@RequestBody Airport airport)
     {
         airportRepository.save(airport);
         return ResponseEntity.ok("Done adding a single airport");
@@ -28,4 +24,11 @@ public class AirportController {
     {
         return ResponseEntity.ok("Test");
     }
+    @GetMapping(value ="/all")
+    public ResponseEntity<?> getAllAirports()
+    {
+       return  ResponseEntity.ok(airportRepository.findAll());
+    }
+
+
 }
