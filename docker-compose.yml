@@ -12,7 +12,7 @@ services:
     ports:
       - '8888:5432'
 
-  recipe:
+  backend:
     container_name: travel_app
     build:
       context: .
@@ -26,3 +26,14 @@ services:
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     depends_on:
       - psql-db
+  frontend:
+    build:
+      context: ./travel-frontend
+      target: dev
+      dockerfile: Dockerfile
+    volumes:
+      - .:/travel-frontend
+      - /travel-frontend/node_modules
+      - /travel-frontend/.next
+    ports:
+      - "3030:3000"

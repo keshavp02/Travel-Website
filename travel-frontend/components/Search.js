@@ -1,7 +1,8 @@
 "use client"
-
-// Import React and Chakra UI components
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import Image from 'next/image'
+import Link from 'next/link'
 import {
     Box,
     Heading,
@@ -13,15 +14,27 @@ import {
     ChakraProvider,
 } from '@chakra-ui/react';
 import Select from 'react-select';
-
 const Home = () => {
     const [formData, setFormData] = useState({
-        destination: '',
+        destination: 0,
         fromDate: '',
         toDate: '',
         adults: 0,
         children: 0,
+        airport:''
     });
+    const [airportOptions, setAirportOptions] = useState([]);
+
+
+    async  function airports(){
+        const response = await fetch("http://127.0.0.1:8080/airports/all");
+        const res = await response.json();
+        const option = res.map(data=>({value:data.id,label:`(${data.code}) ${data.location}`}));
+        setAirportOptions(option);
+    }
+    useEffect(()=>{
+        airports();
+    },[])
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -71,7 +84,7 @@ const Home = () => {
                         </FormControl>
 
                         {/* From Date */}
-                        <FormControl mb={4} flexBasis="18%">
+                        <FormControl mb={4} flexBasis="18%" paddingLeft={"10px"}>
                             <FormLabel color="teal.500">From Date:</FormLabel>
                             <Input
                                 type="date"
@@ -88,7 +101,7 @@ const Home = () => {
                         </FormControl>
 
                         {/* To Date */}
-                        <FormControl mb={4} flexBasis="18%">
+                        <FormControl mb={4} flexBasis="18%" paddingLeft={"10px"}>
                             <FormLabel color="teal.500">To Date:</FormLabel>
                             <Input
                                 type="date"
@@ -99,7 +112,7 @@ const Home = () => {
                         </FormControl>
 
                         {/* Number of Adults */}
-                        <FormControl mb={4} flexBasis="18%">
+                        <FormControl mb={4} flexBasis="18%" paddingLeft={"10px"}>
                             <FormLabel color="teal.500">Number of Adults:</FormLabel>
                             <Input
                                 type="number"
@@ -116,7 +129,7 @@ const Home = () => {
                         </FormControl>
 
                         {/* Number of Children */}
-                        <FormControl mb={4} flexBasis="18%">
+                        <FormControl mb={4} flexBasis="18%" paddingLeft={"10px"}>
                             <FormLabel color="teal.500">Number of Children:</FormLabel>
                             <Input
                                 type="number"
@@ -132,17 +145,28 @@ const Home = () => {
                             />
                         </FormControl>
                     </Flex>
-
-                    <Button
-                        colorScheme="teal"
-                        onClick={handleSubmit}
-                        mt={4}
-                        bg="teal.500"
-                        color="white"
-                        _hover={{ bg: 'teal.600' }}
-                    >
-                        Search Vacation Packages
-                    </Button>
+                    <Flex>
+                        <FormControl mb={4} flexBasis="28%">
+                            <FormLabel color="teal.500">Flying From:</FormLabel>
+                            <Select
+                                value={formData.airport}
+                                options={airportOptions}
+                            />
+                        </FormControl>
+                    </Flex>
+                    <Link
+                     href={"/packages"}
+                     passHref={true} >
+                        <Button
+                            colorScheme="teal"
+                            mt={4}
+                            bg="teal.500"
+                            color="white"
+                            _hover={{ bg: 'teal.600' }}
+                            >
+                            Search Vacation Packages
+                        </Button>
+                    </Link>
                 </Box>
             </Flex>
         </ChakraProvider>

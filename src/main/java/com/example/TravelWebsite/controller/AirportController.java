@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("api")
+@RequestMapping("airports")
 public class AirportController {
 
     @Autowired
     AirportRepository airportRepository;
-    @PostMapping("/Add")
+    @PostMapping("/add")
     public ResponseEntity<?> AddAirport(@RequestBody Airport airport)
     {
         airportRepository.save(airport);
@@ -25,6 +25,7 @@ public class AirportController {
         return ResponseEntity.ok("Test");
     }
     @GetMapping(value ="/all")
+    @CrossOrigin
     public ResponseEntity<?> getAllAirports()
     {
        return  ResponseEntity.ok(airportRepository.findAll());
